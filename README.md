@@ -4,6 +4,8 @@ Welcome to **Mellona Café** — a cozy, responsive café website where every cu
 
 ---
 ![Alt Text](https://github.com/DinukaRasanjana/Mellona-cafe-site/blob/main/1.jpg)
+![Alt Text](https://github.com/DinukaRasanjana/Mellona-cafe-site/blob/main/2.jpg).
+![Alt Text]([https://github.com/DinukaRasanjana/My-Contact-App/blob/3a85cd0357950216be5f3bbe50c822e64cd4a77a/2.png](https://github.com/DinukaRasanjana/Mellona-cafe-site/blob/main/3.jpg)).
 
 ---
 
