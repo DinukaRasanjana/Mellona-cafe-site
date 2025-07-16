@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mellona Café - Artisanal coffee, fresh pastries, and a warm atmosphere in the heart of the city">
+    <title>Mellona Café | Artisanal Coffee & Bakery</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" as="style">
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary-color: #cc155b;
+            --primary-hover: #e53170;
+            --secondary-color: #a5755d;
+            --background-color: #a5b0d4;
+            --text-color: #172c66;
+            --accent-color: #8bd3dd;
+            --dark-accent: #001858;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-accent);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background-attachment: fixed;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .menu-card {
+            transition: all 0.3s ease;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .menu-card img {
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .star-rating i {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .star-rating i:hover {
+            transform: scale(1.2);
+            color: #ffc107;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -8px;
+            left: 25%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .section-title:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            padding: 1.5rem;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .cart-modal {
+            background-color: rgba(0,0,0,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cart-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .cart-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-modal.active .cart-content {
+            transform: translateY(0);
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus, a:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        /* Loading state */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 60vh;
+                background-attachment: scroll;
+            }
+            
+            .section-title::after {
+                width: 70%;
+                left: 15%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="bg-amber-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amber-900 rounded">
+                <i class="fas fa-mug-hot mr-2" aria-hidden="true"></i>
+                <span>Mellona Café</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="nav-link py-2 px-1 active" aria-current="page">Home</a>
+                <a href="#menu" class="nav-link py-2 px-1">Menu</a>
+                <a href="#about" class="nav-link py-2 px-1">About</a>
+                <a href="#reviews" class="nav-link py-2 px-1">Reviews</a>
+                <a href="#contact" class="nav-link py-2 px-1">Contact</a>
+                <div class="relative">
+                    <button id="cart-btn" class="text-white hover:text-amber-200 focus:outline-none focus:text-amber-200" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart text-xl" aria-hidden="true"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:text-amber-200" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-amber-800 px-4 py-2" aria-labelledby="mobile-menu-button">
+            <a href="#" class="block py-2 text-white hover:bg-amber-700 px-2 rounded transition" aria-current="page">Home</a>
+            <a href="#menu" class="block py-2 text-white hover:bg-amber-700 px-2 rounded transition">Menu</a>
+            <a href="#about" class="block py-2 text-white hover:bg-amber-700 px-2 rounded transition">About</a>
+            <a href="#reviews" class="block py-2 text-white hover:bg-amber-700 px-2 rounded transition">Reviews</a>
+            <a href="#contact" class="block py-2 text-white hover:bg-amber-700 px-2 rounded transition">Contact</a>
+            <div class="block py-2 text-white hover:bg-amber-700 px-2 rounded transition flex items-center">
+                <i class="fas fa-shopping-cart mr-2" aria-hidden="true"></i>
+                <span id="mobile-cart-count">0 items</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <h1 id="hero-heading" class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to Mellona Café</h1>
+            <p class="text-xl md:text-2xl mb-8 text-white">Where every cup tells a story</p>
+            <a href="#menu" class="btn-primary font-bold py-3 px-8 rounded-full text-lg focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent">
+                Explore Our Menu
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-white" aria-labelledby="about-heading">
+            <div class="container mx-auto px-4">
+                <h2 id="about-heading" class="text-3xl font-bold text-center mb-12 section-title">Our Story</h2>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1487&q=80" 
+                             alt="Café interior with cozy seating and warm lighting" 
+                             class="rounded-lg shadow-xl w-full h-auto object-cover"
+                             loading="lazy">
+                    </div>
+                    <div class="md:w-1/2">
+                        <p class="text-gray-700 mb-4 text-lg">
+                            Founded in 2010, Mellona Café began as a small coffee cart in downtown Portland. What started as a passion project between two college friends quickly grew into the beloved community hub it is today.
+                        </p>
+                        <p class="text-gray-700 mb-4 text-lg">
+                            We're committed to sourcing the highest quality beans directly from ethical growers around the world, then roasting them in small batches to ensure the freshest flavor in every cup.
+                        </p>
+                        <p class="text-gray-700 text-lg">
+                            Our name "Mellona" comes from the Roman goddess of honey, representing our sweet approach to hospitality and community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="py-16 bg-amber-50" aria-labelledby="menu-heading">
+            <div class="container mx-auto px-4">
+                <h2 id="menu-heading" class="text-3xl font-bold text-center mb-12 section-title">Our Menu</h2>
+                <div class="flex justify-center gap-4 mb-8 flex-wrap">
+                    <button class="menu-filter px-4 py-2 rounded-full bg-amber-200 text-amber-900 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500" data-category="all">All Items</button>
+                    <button class="menu-filter px-4 py-2 rounded-full bg-white text-amber-900 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500" data-category="coffee">Coffee</button>
+                    <button class="menu-filter px-4 py-2 rounded-full bg-white text-amber-900 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500" data-category="food">Food</button>
+                    <button class="menu-filter px-4 py-2 rounded-full bg-white text-amber-900 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500" data-category="dessert">Desserts</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Coffee Items -->
+                    <article class="menu-card" data-category="coffee" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" 
+                             alt="Freshly brewed espresso in a white cup" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold">Espresso</h3>
+                                <span class="text-lg font-bold text-pink-500">$3.50</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">Rich and aromatic single shot of our house blend</p>
+                            <button class="add-to-cart mt-4 btn-primary py-2 px-4 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white" 
+                                    data-id="1" 
+                                    data-name="Espresso" 
+                                    data-price="3.50"
+                                    aria-label="Add Espresso to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-card" data-category="coffee" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" 
+                             alt="Cappuccino with latte art in a ceramic cup" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold">Cappuccino</h3>
+                                <span class="text-lg font-bold text-pink-500">$4.75</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">Espresso with steamed milk and silky foam</p>
+                            <button class="add-to-cart mt-4 btn-primary py-2 px-4 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white" 
+                                    data-id="2" 
+                                    data-name="Cappuccino" 
+                                    data-price="4.75"
+                                    aria-label="Add Cappuccino to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-card" data-category="coffee" tabindex="0">
+                        <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1000w,f_auto,q_auto:best/rockcms/2023-04/how-to-perfect-latte-at-home-main-zz-230424-637d68.jpg" 
+                             alt="Latte with beautiful foam art" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold">Latte</h3>
+                                <span class="text-lg font-bold text-pink-500">$4.50</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">Smooth espresso with creamy steamed milk</p>
+                            <button class="add-to-cart mt-4 btn-primary py-2 px-4 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white" 
+                                    data-id="3" 
+                                    data-name="Latte" 
+                                    data-price="4.50"
+                                    aria-label="Add Latte to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Food Items -->
+                    <article class="menu-card" data-category="food" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="Avocado toast with cherry tomatoes and feta on sourdough bread" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold">Avocado Toast</h3>
+                                <span class="text-lg font-bold text-pink-500">$8.50</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">Sourdough bread with smashed avocado, cherry tomatoes, and feta</p>
+                            <button class="add-to-cart mt-4 btn-primary py-2 px-4 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white" 
+                                    data-id="4" 
+                                    data-name="Avocado Toast" 
+                                    data-price="8.50"
+                                    aria-label="Add Avocado Toast to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-card" data-category="food" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1998&q=80" 
+                             alt="Breakfast sandwich with egg, cheese, and bacon on an English muffin" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold">Breakfast Sandwich</h3>
+                                <span class="text-lg font-bold text-pink-500">$7.95</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">Egg, cheese, and bacon on an English muffin</p>
+                            <button class="add-to-cart mt-4 btn-primary py-2 px-4 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white" 
+                                    data-id="5" 
+                                    data-name="Breakfast Sandwich" 
+                                    data-price="7.95"
+                                    aria-label="Add Breakfast Sandwich to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Dessert Items -->
+                    <article class="menu-card" data-category="dessert" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" 
+                             alt="Freshly baked chocolate croissant on a wooden board" 
+                             class="w-full h-48 object-cover"
+                             loading="lazy">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold">Chocolate Croissant</h3>
+                                <span class="text-lg font-bold text-pink-500">$4.25</span>
+                            </div>
+                            <p class="text-gray-600 mt-2">Flaky pastry with rich chocolate filling</p>
+                            <button class="add-to-cart mt-4 btn-primary py-2 px-4 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white" 
+                                    data-id="6" 
+                                    data-name="Chocolate Croissant" 
+                                    data-price="4.25"
+                                    aria-label="Add Chocolate Croissant to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-16 bg-white" aria-labelledby="reviews-heading">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 id="reviews-heading" class="text-3xl font-bold text-amber-900">Customer Reviews</h2>
+                    <div class="w-20 h-1 bg-amber-500 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="max-w-3xl mx-auto mb-12">
+                    <h3 class="text-xl font-semibold mb-4 text-amber-800">Leave a Review</h3>
+                    <form id="review-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">Rating</label>
+                            <div class="star-rating flex space-x-1">
+                                <i class="far fa-star text-2xl" data-rating="1" role="button" aria-label="1 star" tabindex="0"></i>
+                                <i class="far fa-star text-2xl" data-rating="2" role="button" aria-label="2 stars" tabindex="0"></i>
+                                <i class="far fa-star text-2xl" data-rating="3" role="button" aria-label="3 stars" tabindex="0"></i>
+                                <i class="far fa-star text-2xl" data-rating="4" role="button" aria-label="4 stars" tabindex="0"></i>
+                                <i class="far fa-star text-2xl" data-rating="5" role="button" aria-label="5 stars" tabindex="0"></i>
+                            </div>
+                            <input type="hidden" id="rating" value="0" required>
+                        </div>
+                        <div>
+                            <label for="review-text" class="block text-gray-700 mb-1">Your Review</label>
+                            <textarea id="review-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded transition duration-300 focus:outline-none focus:ring-2 focus:ring-amber-700">
+                            Submit Review
+                        </button>
+                    </form>
+                </div>
+                
+                <div id="reviews-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-amber-50" aria-labelledby="contact-heading">
+            <div class="container mx-auto px-4">
+                <h2 id="contact-heading" class="text-3xl font-bold text-center mb-12 section-title">Visit Us</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-semibold mb-4 text-amber-800">Location & Hours</h3>
+                        <address class="not-italic mb-6">
+                            <p class="text-gray-700 mb-2"><i class="fas fa-map-marker-alt mr-2 text-amber-600"></i> 123 Coffee Lane, Portland, OR 97201</p>
+                            <p class="text-gray-700 mb-2"><i class="fas fa-phone mr-2 text-amber-600"></i> (503) 555-1234</p>
+                            <p class="text-gray-700 mb-2"><i class="fas fa-envelope mr-2 text-amber-600"></i> hello@mellonacafe.com</p>
+                        </address>
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2 text-amber-800">Hours:</h4>
+                            <ul class="text-gray-700">
+                                <li class="flex justify-between mb-1"><span>Monday - Friday</span> <span>7:00 AM - 7:00 PM</span></li>
+                                <li class="flex justify-between mb-1"><span>Saturday</span> <span>8:00 AM - 6:00 PM</span></li>
+                                <li class="flex justify-between"><span>Sunday</span> <span>8:00 AM - 6:00 PM</span></li>
+                            </ul>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-amber-900 hover:text-amber-700 text-2xl focus:outline-none focus:text-amber-700" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="text-amber-900 hover:text-amber-700 text-2xl focus:outline-none focus:text-amber-700" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-amber-900 hover:text-amber-700 text-2xl focus:outline-none focus:text-amber-700" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="h-full w-full rounded-lg overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.308946784329!2d-122.68181892334361!3d45.52306207107658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a023ba35679%3A0xdea7938bacfe0fdb!2sPioneer%20Courthouse%20Square!5e0!3m2!1sen!2sus!4v1689877952147!5m2!1sen!2sus" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Map of Mellona Café location"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amber-900 rounded">
+                        <i class="fas fa-mug-hot mr-2" aria-hidden="true"></i>
+                        Mellona Café
+                    </a>
+                    <p class="mt-2 text-amber-200">Artisanal coffee since 2010</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="mb-2">Sign up for our newsletter</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l focus:outline-none text-gray-900" required>
+                        <button type="submit" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-r font-medium focus:outline-none focus:ring-2 focus:ring-white">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-6 text-center md:text-left">
+                <p>&copy; 2023 Mellona Café. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   <!-- Cart Modal -->
+<div id="cart-modal" class="cart-modal hidden" aria-hidden="true" role="dialog" aria-labelledby="cart-modal-title">
+  <div class="cart-content p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="cart-modal-title" class="text-xl font-bold text-amber-900">Your Cart</h3>
+      <button id="close-cart" class="text-gray-600 hover:text-red-500 text-xl focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div id="cart-items" class="space-y-4">
+      <!-- Cart items dynamically inserted here -->
+    </div>
+    <div class="mt-6 border-t pt-4">
+      <div class="flex justify-between font-semibold text-lg">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="mt-4 w-full bg-amber-700 text-white py-2 px-4 rounded hover:bg-amber-800">
+        Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript Cart Logic -->
+<script>
+  const cartBtn = document.getElementById('cart-btn');
+  const cartModal = document.getElementById('cart-modal');
+  const closeCart = document.getElementById('close-cart');
+  const cartItems = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+  const cartCount = document.getElementById('cart-count');
+  const mobileCartCount = document.getElementById('mobile-cart-count');
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+  let cart = [];
+
+  function updateCartUI() {
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'flex justify-between items-center border-b pb-2';
+      div.innerHTML = `
+        <div>
+          <h4 class="font-medium">${item.name}</h4>
+          <p class="text-sm text-gray-500">$${item.price.toFixed(2)}</p>
+        </div>
+        <span class="font-bold">x${item.qty}</span>
+      `;
+      cartItems.appendChild(div);
+      total += item.price * item.qty;
+    });
+
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+    cartCount.textContent = cart.reduce((acc, i) => acc + i.qty, 0);
+    mobileCartCount.textContent = `${cart.reduce((acc, i) => acc + i.qty, 0)} items`;
+  }
+
+  addToCartButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      const name = btn.getAttribute('data-name');
+      const price = parseFloat(btn.getAttribute('data-price'));
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, price, qty: 1 });
+      }
+      updateCartUI();
+    });
+  });
+
+  cartBtn.addEventListener('click', () => {
+    cartModal.classList.remove('hidden');
+  });
+
+  closeCart.addEventListener('click', () => {
+    cartModal.classList.add('hidden');
+  });
+</script>
+
+</body>
+</html>
