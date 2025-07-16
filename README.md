@@ -4,7 +4,7 @@ Welcome to **Mellona Café** — a cozy, responsive café website where every cu
 
 ---
 
-![Mellona Café Screenshot](assets/screenshot.png) 
+![Mellona Café Screenshot](assets/1.jpg) 
 
 ---
 
