@@ -3,7 +3,7 @@
 Welcome to **Mellona Café** — a cozy, responsive café website where every cup tells a story. Built with HTML, TailwindCSS, and Vanilla JavaScript, this site features an interactive menu, add-to-cart system, customer reviews, and responsive design optimized for all screens.
 
 ---
-![Alt Text](https://github.com/DinukaRasanjana/Mellona-cafe-site/blob/main/1.jpg)/1.jpg) 
+![Alt Text](https://github.com/DinukaRasanjana/Mellona-cafe-site/blob/main/1.jpg)) 
 
 ---
 
