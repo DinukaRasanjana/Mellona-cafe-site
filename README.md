@@ -24,7 +24,7 @@ Welcome to **Mellona Café** — a cozy, responsive café website where every cu
 
 | Tech             | Used For                       |
 |------------------|--------------------------------|
-| HTML5            | Page structure                 |
+| HTML            | Page structure                 |
 | TailwindCSS CDN  | Styling and responsive layout  |
 | Font Awesome     | Icons                          |
 | Vanilla JavaScript | Cart, modal, review logic   |
